@@ -11,7 +11,7 @@ namespace CSLMod.CSLMapView.Modding.UI
     internal class Globalization
     {
         internal const string DEFAULT_LANGUAGE = "en";
-        private readonly string[] supportedLanguages = new[] { "en", "ja", "zh", "zh-tw", "fr", "ru", "ko", "de" };
+        private readonly string[] supportedLanguages = new[] { "en", "ja", "zh", "zh-tw", "fr", "ru", "ko", "de", "es" };
         private Dictionary<string, Dictionary<StringKeys, string>> strings;
         /// <summary>
         /// 文字列のキー
@@ -81,6 +81,8 @@ namespace CSLMod.CSLMapView.Modding.UI
             initKo(strings["ko"]);
             strings.Add("de", new Dictionary<StringKeys, string>());
             initDe(strings["de"]);
+            strings.Add("es", new Dictionary<StringKeys, string>());
+            initEs(strings["es"]);
         }
         private void initJa(Dictionary<StringKeys, string> dic)
         {
@@ -178,6 +180,20 @@ namespace CSLMod.CSLMapView.Modding.UI
             dic.Add(StringKeys.Compress, ".cslmap komprimieren (Ausgabe *.cslmap.gz)");
             dic.Add(StringKeys.AddTimestampToFileName, "Datum und Uhrzeit dem Dateinamen hinzufügen");
 
+        }
+        private void initEs(Dictionary<StringKeys, string> dic)
+        {
+            dic.Add(StringKeys.Export, "Exportar");
+            dic.Add(StringKeys.ExportAndRun, "Exportar e iniciar CSL MapView");
+            dic.Add(StringKeys.DescLabelExeOutputPath, "Directorio de la aplicación CSL MapView (se instalará automáticamente)");
+            dic.Add(StringKeys.DescLabelCslmapOutputPath, "Ruta de salida del archivo de mapa (*.cslmap)");
+            dic.Add(StringKeys.FailedToExportMap, "No se pudo exportar el mapa.");
+            dic.Add(StringKeys.FailedToCopyFile, "No se pudieron copiar los archivos.");
+            dic.Add(StringKeys.NotInGame, "El mapa no está cargado.");
+            dic.Add(StringKeys.FailedToRunViewer, $"No se pudo ejecutar {CSLMapView.VIEWER_EXE}");
+            dic.Add(StringKeys.Compress, "Comprimir .cslmap (salidas *.cslmap.gz)");
+            dic.Add(StringKeys.AddTimestampToFileName, "Agregar marca de tiempo al nombre del archivo");
+            dic.Add(StringKeys.AutoExportOnSave, "Exportación automática al guardar el juego");
         }
 
         /// <summary>
